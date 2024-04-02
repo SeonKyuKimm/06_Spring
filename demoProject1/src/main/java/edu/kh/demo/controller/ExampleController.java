@@ -10,15 +10,15 @@ public class ExampleController {
 	
 	/* 요청 주소 매핑하는 방법
 	 	
-	 	1) RequestMapping("주소")
+	 	1)RequestMapping("주소")
 	  
-	  	2) @GetMapping("주소") : GET 방식 요청 매핑
+	  	2)@GetMapping("주소") : GET 방식 요청 매핑
 	  	
-	  	   @PostMapping("주소") : POST 방식 요청 매핑
+	  	  @PostMapping("주소") : POST 방식 요청 매핑
 	  	
-	  	   @PutMapping("주소") : PUT 방식 요청 매핑 //레스트 API ?
+	  	  @PutMapping("주소") : PUT 방식 요청 매핑 //레스트 API ?
 	  	   
-	  	   @DeleteMapping("주소") : DELETE 방식 요청 매핑 // 레스트 API?
+	  	  @DeleteMapping("주소") : DELETE 방식 요청 매핑 // 레스트 API?
 	  
 	 */
 	

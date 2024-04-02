@@ -1,11 +1,17 @@
 package edu.kh.demo.controller;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.kh.demo.model.dto.MemberDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
@@ -101,6 +107,72 @@ public class ParameterController {
 				
 		return "redirect:/param/main";
 	}
+	
+	/* 3 . @RequestParam 여러 개 파라미터
+	 	
+	 	String[]
+	 	List<자료형>
+	 	Map<String, Object>
+	 	
+	 	required 속성은 사용 가능하나,
+	 	defaultValue 속성은 사용 불가.
+	 
+	 */
+	
+	@PostMapping("test3")
+	public String paramTest3(
+			@RequestParam(value="color", required=false) String[] colorArr,
+			@RequestParam(value="fruit", required=false) List<String> fruitList,
+			@RequestParam Map<String, Object> paramMap
+			) {
+			log.debug("colorArr : " + Arrays.toString(colorArr));	
+			
+			log.debug("fruitList : " + fruitList);
+			
+			// @RequestParam Map<String, Object> paramMap
+			// -> 제출된 파라미터가 모두 Map에 저장됩니다
+			// -> 단, key(name속성값)가 중복되면 처음 들어온 값 하나만 저장된다.
+			// -> 같은 name속성 파라미터 String[], List로 저장이 안됨
+			
+			log.debug("paramMap : " + paramMap);
+			
+			return "redirect:/param/main";
+				
+	}
+	
+	/*
+	@ModelAttribute를 이용한 파라미터 얻어오기
+	
+	@ModelAttribute
+	- DTO (또는VO) 와 같이 사용하는 어노테이션
+	
+		전달받은 파라미터의 name 속성 값이
+		같이 사용되는 DTO의 필드명과 같으면
+		자동으로 setter를 호출해서 필드에 값을 세팅
+	
+	*** 회원가입 할 때 좋다 ***
+	
+	*/
+	
+	
+	// *** @ModelAttribute를 이용해서 값이 필드에 세팅된 객체를
+	// 	커맨드 객체 라고 부른다 *** 
+	
+	// *** @ModelAttribute 사용 시 주의사항 ***
+	// DTO에 기본생성자, setter가 필수로 존재해야 한다 !
+
+	// *** @ModelAttribute 는 생략이 가능함. ***
+	
+	@PostMapping("test4")
+	public String paramTest4
+	(/* @ModelAttribute */ MemberDTO inputMember) {
+		                                               //-> 커맨드 객체
+		log.debug("inputMember : " +inputMember.toString());
+		
+		
+		return "redirect:/param/main";
+	}
+	
 	
 	
 }
