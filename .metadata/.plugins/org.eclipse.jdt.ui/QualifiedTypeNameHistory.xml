@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
@@ -19,8 +18,10 @@
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="edu.kh.demo.model.dto.Student"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="edu.kh.demo.model.dto.Student"/>
 </qualifiedTypeNameHistroy>
