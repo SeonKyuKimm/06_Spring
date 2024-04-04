@@ -69,6 +69,7 @@ public class ParameterController {
 		  
 		 */
 		
+		
 		return "redirect:/param/main";
 	}
 	
