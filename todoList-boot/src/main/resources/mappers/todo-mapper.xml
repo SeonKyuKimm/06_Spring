@@ -91,6 +91,7 @@
 					  			
 					    -->
 	</select>
+	
 	<!-- 완료 여부 변경 -->
 	<update id="changeComplete" parameterType="Todo">
 		UPDATE TB_TODO SET
@@ -113,13 +114,17 @@
 	</update>
 	
 	
+	<!-- 할 일 삭제 -->
 	<delete id="todoDelete" parameterType="_int">
 		DELETE FROM TB_TODO
 		WHERE TODO_NO = #{todoNo}
 	</delete>
 	
 	
-	
+	<!-- 전체 할 일 개수 조회 -->
+	<select id="getTotalCount" resultType="_int">
+		SELECT COUNT(*) FROM TB_TODO
+	</select>
 	
 	
 	

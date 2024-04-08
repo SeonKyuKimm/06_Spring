@@ -35,15 +35,15 @@ public class ParameterController {
 	
 	/* 1 . HttpServletRequest.getParameter("key") 이용
 	 	
-	 	HttpServletRequest : 
+		HttpServletRequest : 
 	 	- 요청 클라이언트 정보, 제출된 파라미터 등을 저장한 객체
 	 	- 클라이언트에서 요청이 왔을 때 생성됨
 	 	
 	 	
-	  ArgumentResolver(전달 인자 해결사)
-	  - Spring 의 Controller 메서드 작성 시
-	  매개변수 자리에 원하는 객체를 작성하면
-	  존재하는 객체를 바인딩, 또는 없으면 내부적으로 생성해서 바인딩을 해줌
+		ArgumentResolver(전달 인자 해결사)
+		- Spring 의 Controller 메서드 작성 시
+		  매개변수 자리에 원하는 객체를 작성하면
+		  존재하는 객체를 바인딩, 또는 없으면 내부적으로 생성해서 바인딩을 해줌
 	  
 	  
 	 */

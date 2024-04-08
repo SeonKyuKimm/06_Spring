@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TodoList - boot</title>
+
+
+	
 </head>
 <body>
     <h1>Todo List</h1>
+
+	<hr><br>
+
+	<h3>
+		<a href="/ajax/main">TodoList - Ajax 버젼</a>
+	</h3>
+
+	<hr><br>
+
 	<!-- 할 일 추가 하는 form -->
-	
 	<form action="/todo/add" method="post">
         <h4>할 일 추가</h4>
 		
@@ -61,6 +72,8 @@
         조각의 경로는 forward 하듯이 경로 작성해줌.
         접두사. 접미사 생략하고 작성하기.
     -->
+
+	
     <th:block th:replace="~{common/footer}"></th:block>
 </body>
 </html>
