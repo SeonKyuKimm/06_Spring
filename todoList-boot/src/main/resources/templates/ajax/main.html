@@ -98,8 +98,22 @@
             <button id="updateView">수정</button>
             <button id="deleteBtn">삭제</button>
         </div>
+		
     </div>
 
+	
+	<div id="updateLayer" class="popup-hidden">
+	   <div class="popup-row">
+	     제목 : <input type="text" id="updateTitle">
+	   </div>
+	   <div class="popup-row">
+	     <textarea id="updateContent" cols="50" rows="5"></textarea>
+	   </div>
+	   <div class="btn-container">
+	     <button id="updateBtn">수정</button>     
+	     <button id="updateCancel">취소</button>     
+	   </div>
+	 </div>
 
     <script src="/js/ajax-main.js"></script>
 </body>

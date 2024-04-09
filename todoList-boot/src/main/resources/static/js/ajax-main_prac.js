@@ -1,5 +1,5 @@
 
-
+/*
 changeComplete.addEventListener("click", ()=>{
 
     // todo 의 todoNo 가져오기
@@ -32,4 +32,4 @@ changeComplete.addEventListener("click", ()=>{
 
     alert("변경되었습니다ㅎ");
   
-});
+});*/

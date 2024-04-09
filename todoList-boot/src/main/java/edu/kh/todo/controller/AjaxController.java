@@ -124,9 +124,9 @@ public class AjaxController {
 	@ResponseBody // 지금 내가 얻어온 값 그대로 호출한놈에게 돌려보내겠다는 표시
 	@GetMapping("selectList")
 	public List<Todo> selectList() {
-		
+
 		List<Todo> todoList = service.selectList();
-		
+
 		return todoList;
 		
 		// List(Java의 전용 타입임)를 반환
@@ -158,21 +158,36 @@ public class AjaxController {
 		return service.todoDelete(todoNo);
 	}
 	
+//	// 모달 내 완료 여부 변경버튼 클릭 시 -
+//	@ResponseBody
+//	@PostMapping("changeComplete")
+//	public int changeComplete(@RequestBody Todo todo) {
+//		//log.debug("todoNo={}",todo.getTodoNo());
+//		//log.debug(todo.getComplete());
+//		
+//		int result = service.changeComplete(todo);
+//		
+//		return result;
+//		
+//	}
 	
+	
+	// 모달 내 완료 여부 변경버튼 클릭 시 -( 수업)
 	@ResponseBody
-	@PostMapping("changeComplete")
-	public int changeComplete(@RequestBody Todo todo) {
-		//log.debug("todoNo={}",todo.getTodoNo());
-		//log.debug(todo.getComplete());
+	@PutMapping("changeComplete")
+	public int changeComplete(@RequestBody Todo todo ) {
 		
-		int result = service.changeComplete(todo);
+		return service.changeComplete(todo);
 		
-		return result;
-		
+	} 
+	
+	//할 일 수정
+	@ResponseBody
+	@PostMapping("update")
+	public int todoUpdate(@RequestBody Todo todo) {
+		log.debug("배고파" + todo.toString());
+		return service.todoUpdate(todo);
 	}
-	
-	
-	
 	
 	
 }
