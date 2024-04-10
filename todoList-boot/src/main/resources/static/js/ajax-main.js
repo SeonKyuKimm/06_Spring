@@ -453,10 +453,10 @@ updateBtn.addEventListener("click", e => {
 
     fetch("/ajax/update", {
        method : "PUT",
-       header : {"Content-Type" : "application/json"},
+       headers : {"Content-Type" : "application/json"},
        body : JSON.stringify(obj)
     })
-    .then( res => res.text() )
+    .then( resp => resp.text() )
     .then( result => {
 
         if( result > 0 ){ // 수정 성공 
@@ -466,16 +466,17 @@ updateBtn.addEventListener("click", e => {
             updateLayer.classList.add("popup-hidden");
 
             // 팝업 레이어 보이기
-            popupLayer.classList.remove("popup-hidden");
+           
             
             //목록 재조회해서 목록 리스트 최신화~
             selectTodoList();
 
             popupTodoTitle.innerText = updateTitle.value;
+            
             popupTodoContent.innerHTML// <br>코드 해석해야해서 HTML로 읽어옴
                 = updateContent.value.replaceAll("\n", "<br>");
 
-            popupLayer.classList.remove("popup-hidden")
+            popupLayer.classList.remove("popup-hidden");
 
             // 수정 레이어에 있는 남은 흔적 제거
             updateTitle.value = "";

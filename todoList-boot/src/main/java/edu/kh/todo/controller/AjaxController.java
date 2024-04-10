@@ -183,7 +183,7 @@ public class AjaxController {
 	
 	//할 일 수정
 	@ResponseBody
-	@PostMapping("update")
+	@PutMapping("update")
 	public int todoUpdate(@RequestBody Todo todo) {
 		log.debug("배고파" + todo.toString());
 		return service.todoUpdate(todo);

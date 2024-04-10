@@ -2,5 +2,8 @@
 <libraryInfos>
     <libraryInfo home="C:\tools\jdk-17.0.2" version="17.0.2"/>
     <libraryInfo home="C:\tools\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143" version="17.0.10"/>
+    <libraryInfo home="C:\Tools\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143\jre" version="17.0.10"/>
     <libraryInfo home="C:\tools\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143\jre" version="17.0.10"/>
+    <libraryInfo home="C:\Tools\새 폴더\openjdk-17.0.2_windows-x64_bin\jdk-17.0.2" version="17.0.2"/>
+    <libraryInfo home="C:\Tools\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143" version="17.0.10"/>
 </libraryInfos>
