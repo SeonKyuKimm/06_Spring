@@ -66,6 +66,17 @@ public class MemberServiceImpl implements MemberService{
 		
 		return loginMember;
 	}
+
+
+	/**이메일 서비스 중복 / 유효성 검사
+	 * @param memberEmail
+	 * @return mapper.checkEmail();
+	 */
+	@Override
+	public int checkEmail(String memberEmail) {
+		
+		return mapper.checkEmail(memberEmail);
+	}
 }
 
 /* BCrypt 암호화 (Spring Security 제공)
@@ -97,18 +108,6 @@ public class MemberServiceImpl implements MemberService{
   ex ) B 회원 : 1234            ->    암호화 : abcd
   
    - 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
 */
