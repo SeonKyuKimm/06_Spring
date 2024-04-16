@@ -1,5 +1,9 @@
 package edu.kh.project.member.model.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -127,6 +131,59 @@ public class MemberServiceImpl implements MemberService{
 		// 회원가입 매퍼 메서드 호출			
 		return mapper.signup(inputMember);
 	}
+
+	/*
+	 빠른 로그인 오버라이딩
+	@Override
+	public Member fastLogin(String memberEmail) {
+		
+		return mapper.fastLogin(memberEmail);
+	}*/
+
+	// 빠른 로그인
+	// -> 일반 로그인에서 비밀번호 비교만 제외
+	@Override
+	public Member quickLogin(String memberEmail) {
+		
+		Member loginMember = mapper.login(memberEmail);
+		
+		//탈퇴 or 없는회원
+		if(loginMember == null) return null;
+			
+		// 조회된 비밀번호 null로 변경
+		loginMember.setMemberPw(null);
+			
+		return loginMember;
+	}
+
+
+	/** 회원 목록 조회 List
+	 * @return 
+	 */
+	@Override
+	public List<Member> selectMemberList() {
+		
+		return mapper.selectMemberList();
+	}
+
+
+	//** 비밀번호 pass01! 로 초기화
+	@Override
+	public int resetPw(int inputNo) {
+	
+		// 우리는 pass01! 를 암호화해서 보낼거니까 위쪽 bcrypt를 재활용, 암호화 할거다
+		String encPw = bcrypt.encode("pass01!");
+		
+		// 우리는 보내야 할 매개변수가 inputNo 와 encPw 인데 두개를 보낼 수가 없다..
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("inputNo", inputNo);
+		map.put("encPw", encPw);
+		
+		return mapper.resetPw( map );
+	}
+
+	
 }
 
 /* BCrypt 암호화 (Spring Security 제공)
@@ -144,11 +201,6 @@ public class MemberServiceImpl implements MemberService{
   * 로구인 / 비밀번호변경 / 탈퇴 등 비밀번호 입력되는 경우
    DB에 저장된 비밀번호(암호화된) 를 조회해서
    matches() 메서드로 비교해야 한다.
-  
-  
-  
-  
-  
   
   
   

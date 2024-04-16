@@ -60,7 +60,7 @@ import lombok.extern.slf4j.Slf4j;
   */
 
 
-@Slf4j // 롬복에서 지원하는 log.debug 를 사용하게 해주는 어노ㅌㅔ이션
+@Slf4j // 롬복에서 지원하는 log.debug 를 사용하게 해주는 어노테이션
 @RequestMapping("ajax") // get, post를 가리지 않고, ajax 라고 시작하는 모든 주소를 캐치해서 
 					//나머지 주소는 밑의 메서드에서 일치하는데 매핑해줌
 @Controller // 요청, 응답을 제어하는 역할임을 명시 + Bean에게 권한 위임하는 것을 등록

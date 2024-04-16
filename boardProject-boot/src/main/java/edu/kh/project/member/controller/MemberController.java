@@ -1,11 +1,15 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,7 +20,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.project.member.model.dto.Member; //
 import edu.kh.project.member.model.service.MemberService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 /*
@@ -162,7 +168,7 @@ public class MemberController {
 	}
 	
 	
-	/** 회원 가입!
+	/** 회원 가입
 	 * @param inputMember : 입력된 회원 정보 (memberEmail, memberPw, memberNickname, 
 	 *					 	memberTel, (memberAddress - 따로 받아서 처리)
 	 * @param memberAddress : 입력한 주소 input3개의 값을 '배열'로 전달[우편번호, 도로명/지번주소, 상세주소]
@@ -199,6 +205,77 @@ public class MemberController {
 		
 	}
 	
+	
+	/* 빠른로그인 
+	 * @param memberEmail
+	 * @param model
+	 * @param ra
+	 * @param request
+	 * @return
+	 
+	@GetMapping("fastLogin")
+	   @ResponseBody
+	   public int testLogin(@RequestParam("memberEmail") String memberEmail, Model model,
+	            RedirectAttributes ra, HttpServletRequest request
+	         ) {
+	      
+	      log.debug(memberEmail);
+	      
+	      Member findMember = service.fastLogin(memberEmail);
+	      if(findMember == null) {
+	         return 0;
+	      }
+	      HttpSession session = request.getSession();
+	      session.setAttribute("loginMember", findMember);
+	      return 1;
+	      
+	      
+	     
+	   } */
 
+
+	@GetMapping("quickLogin")
+	public String quickLogin(
+			@RequestParam("memberEmail") String memberEmail,// js에서 쿼리스트링에 넣어온 파라미터
+			Model model,
+			RedirectAttributes ra
+			) {
+		
+		Member loginMember = service.quickLogin(memberEmail);
+		
+		//service - mapper -xml 보다 결과를 먼저 예상하고 작성된 if문
+		if(loginMember == null) {
+			ra.addFlashAttribute("message", "해당 이메일이 존재하지 않습니다.");
+			
+		}else {
+			model.addAttribute("loginMember", loginMember);
+			
+		}
+		
+		return "redirect:/";
+	}
+	
+	@ResponseBody // 비동기 요청 받았고, 이 값을 그대로 다시 비동기 요청보낸쪽으로 돌릴것이다.
+	@GetMapping("selectMemberList")
+	public List<Member> selectMemberList() {
+		
+		// 리턴되고 있는 값이 (java)List
+		// (Spring) HttpMessageConverter가 JSON Array(문자열)로 변경해줌
+		// -> (JS)response 라는 매개변수 이름으로 => response.json() => JS객체 배열
+		return service.selectMemberList();		
+	}
+	
+	@ResponseBody
+	@PutMapping("resetPw")
+	public int resetPw(@RequestBody int inputNo) {
+		
+		return service.resetPw(inputNo);
+	}
+	
+	
+	
+	
+	
+	
 	
 }

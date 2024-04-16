@@ -1,10 +1,12 @@
 package edu.kh.project.myPage.model.service;
 
+import java.io.File;
 import java.util.Map;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.myPage.model.mapper.MyPageMapper;
@@ -69,9 +71,7 @@ public class myPageServiceImpl implements myPageService {
 		paramMap.put("encPw", encPw);
 		paramMap.put("memberNo", memberNo);
 		
-		
-		
-		
+	
 		
 		return mapper.changePw(paramMap);
 	}
@@ -84,6 +84,7 @@ public class myPageServiceImpl implements myPageService {
 		
 		// 다를경우
 		if(!bcrypt.matches(memberPw,originPw)) {
+			
 			return 0;
 		}
 		
@@ -91,6 +92,41 @@ public class myPageServiceImpl implements myPageService {
 		
 		// 같을 경우 
 		return mapper.secession(memberNo);
+	}
+
+	// 파일 경로 테스트 1
+	// DB에 저장까지는 안할거다.
+	// 제공하는 메서드만 몇 개 보자
+	@Override
+	public String fileUpload1(MultipartFile uploadFile) throws Exception {
+		
+		// MultipartFile이 제공하는 메서드
+		// - getSize() : 파일 크기
+		// - isEmpty() : 업로드한 파일이 비어있다면, true를 반환하는 메서드다
+		// - getOriginalFileName() : 원본 파일 이름
+		// - transferTo("경로") : 
+		//		임시저장경로에서 쓸 일이있다면 원하는 진짜 경로로 전송하는 경로.
+		//		메모리 또는 임시 저장 경로에 업로드 된 파일을
+		// 		원하는 경로에 전송하는 일을 함(서버에 어떤 폴더에 저장할지 지정)
+		
+		if(uploadFile.isEmpty()) { // 업로드한 파일이 없을 경우
+			
+			return null;
+		}
+		
+		// 업로드한 파일이 있을 경우
+		// C:/uploadFiles/test/파일명 으로 서버에 저장할것임
+		uploadFile.transferTo(
+					new File("C:\\uploadFiles\\test\\" + uploadFile.getOriginalFilename())
+				);
+		// 실제 웹에서 해당 파일에 접근할 수 있는 경로를 반환해줄거임
+		// 서버 : "C:\\uploadFiles\\test\\a.jpg
+		// 클라이언트가 실제 웹에 접근할때는 : /myPage/file/a.jpg 라고하면 얻어다 줌
+		// 근데 클라이언트가 저 myPage 어쩌구를 어케 앎. 나도 모르는데 ;;
+		
+		
+		
+		return "/myPage/file/" + uploadFile.getOriginalFilename();
 	}
 
 	

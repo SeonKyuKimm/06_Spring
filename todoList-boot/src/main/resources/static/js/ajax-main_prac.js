@@ -1,35 +1,20 @@
+/* 요소 얻어와서 변수에 저장하기 */
 
-/*
-changeComplete.addEventListener("click", ()=>{
+const totalCount = document.querySelector("#totalCount");
+const completeCount = document.querySelector("#completeCount");
 
-    // todo 의 todoNo 가져오기
-    const todoNo = popupTodoNo.innerText;
-    const complete = (popupComplete.innerText === 'Y') ? 'N' : 'Y';
+const reloadBtn = document.querySelector("#reloadBtn");
 
-    const param = {
-        "todoNo" : todoNo,
-        "complete" : complete
-    } // java <-> js 
+// 1 ) 전체 Todo 갯수 조회 및 출력하는 함수 정의
 
-    fetch("/ajax/changeComplete", {// java내 컨트롤러와 연결해주는 경로
-        method : "POST",
-        headers : {"Content-Type" : "application/json"}, // 요청 데이터의 형식을 JSON으로 지정해서 보낼거다~
-        body : JSON.stringify(param)
-        // 전달 정보 ?
-    })
-    .then( resp => resp.text())
-    .then(result => {
-
-        console.log("complete : " + complete);
-
-        popupLayer.classList.add("popup-hidden");
-
-        getTotalCount();
-        getCompleteCount();
-        selectTodoList();
-      
-    });
-
-    alert("변경되었습니다ㅎ");
-  
-});*/
+function getTotalCount(){
+	
+	fetch("ajax/totalCount")
+	.then( resp => {
+		
+	})
+	.then(result => {
+		
+	});
+	
+}

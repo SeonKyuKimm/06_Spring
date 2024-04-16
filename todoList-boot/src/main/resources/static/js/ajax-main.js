@@ -127,32 +127,32 @@ addBtn.addEventListener("click", () => {
         // js -> json변환 -> java
     }
     
-fetch("/ajax/add" , {
-    // 옵션에 대한 key  :  value 형태로 
-    method : "POST", // POST방식 요청
-    headers : {"Content-Type" : "application/json"}, // 요청 데이터의 형식을 JSON으로 지정해서 보낼거다~
-    body : JSON.stringify(param) // param 객체를 JSON(string)형태로 실제 변환해주는 코드
-})
-.then( resp => resp.text() )// 반환된 응답 값을 text로 변환하는것
-.then( temp => { // 첫번째 then에서 반환된 값 중 변환된 text를 temp에 저장한거
-
-    if(temp > 0) { // success
-        alert("추가 성공 ㅎㅎ");
-
-        // 추가성공한 제목, 내용 지우기
-        todoTitle.value = "";
-        todoContent.value = "";
-
-        // 할 일이 추가되었기 떄문에 전체 Todo개수를 다시 조회한다~
-        getTotalCount();
-
-        // 할 일 목록 다시 조회하기
-        selectTodoList();
-    }else{ // fail
-        alert("추가실패 ㅠㅠ");
-    }
-
-});
+	fetch("/ajax/add" , {
+	    // 옵션에 대한 key  :  value 형태로 
+	    method : "POST", // POST방식 요청
+	    headers : {"Content-Type" : "application/json"}, // 요청 데이터의 형식을 JSON으로 지정해서 보낼거다~
+	    body : JSON.stringify(param) // param 객체를 JSON(string)형태로 실제 변환해주는 코드
+	})
+	.then( resp => resp.text() )// 반환된 응답 값을 text로 변환하는것
+	.then( temp => { // 첫번째 then에서 반환된 값 중 변환된 text를 temp에 저장한거
+	
+	    if(temp > 0) { // success
+	        alert("추가 성공 ㅎㅎ");
+	
+	        // 추가성공한 제목, 내용 지우기
+	        todoTitle.value = "";
+	        todoContent.value = "";
+	
+	        // 할 일이 추가되었기 떄문에 전체 Todo개수를 다시 조회한다~
+	        getTotalCount();
+	
+	        // 할 일 목록 다시 조회하기
+	        selectTodoList();
+	    }else{ // fail
+	        alert("추가실패 ㅠㅠ");
+	    }
+	
+	});
 
 
 });
