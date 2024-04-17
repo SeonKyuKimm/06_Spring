@@ -82,7 +82,51 @@
 		   th:href="${path}" 
 		   download>업로드한 파일</a>        
 
-
+		<img th:src="${path}">
+		<!-- /myPage/file/zzangu.png -->
+		
+		<hr>
+		
+		<form action="/myPage/file/test2"
+			  method="POST"
+			  enctype="multipart/form-data">
+			<h3>파일 업로드 + DB에 저장 + 조회</h3>
+			
+			<input type="file" name="uploadFile">
+			
+			<button class="myPage-submit">제출하기</button>
+		</form>
+		<hr>
+		
+		<form action="/myPage/file/test3"
+			  method="POST" enctype="multipart/form-data">
+			<h3>여러 파일 업로드</h3>
+			
+			<pre>
+				1 ) 같은 name 속성을 가지는 type="file"
+					요소를 여러 개 작성하는 방법
+					
+				2 ) multiple  속성 이용하는 방법	
+			</pre>
+			
+			<div>
+				1 ) type = "file" 요소를 여러 개 작성
+				<br>
+				<input type="file" name="aaa">
+				<br>
+				<input type="file" name="aaa">
+			</div>
+			
+			<hr>
+			
+			<div>
+				2 ) multiple 속성 이용하는 방법(파일 선택 시 드래그가 가능해진다!)
+				<br>
+				<input type="file" name="bbb" multiple>
+			</div>
+			
+			<button type="submit" class="myPage-submit">제출하기</button>
+		</form>
       </section>
 
     </section>

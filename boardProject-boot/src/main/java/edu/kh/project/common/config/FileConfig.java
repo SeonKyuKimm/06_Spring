@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import jakarta.servlet.MultipartConfigElement;
 
-@Configuration
+@Configuration // 프로젝트 전반적으로 설정파일임을 명시하는 어노테이션. 오타 하나라도 있음 서버안켜짐.
 @PropertySource("classpath:/config.properties")
 public class FileConfig implements WebMvcConfigurer {
 
@@ -37,6 +37,18 @@ public class FileConfig implements WebMvcConfigurer {
 	@Value("${spring.servlet.multipart.location}")
 	private String location;
 	
+	
+	//--------------------------------------------------
+	// 프로필 이미지에 관련된 ~
+	@Value("${my.profile.resource-handler}")
+	private String profileResourceHandler;
+	
+	@Value("${my.profile.resource-location}")
+	private String profileResourceLocation;
+	
+	
+	
+	
 	// 요청 주소에 따라
 	// 서버 컴퓨터의 어떤 경로에 접근할지 설정
 	@Override
@@ -46,6 +58,17 @@ public class FileConfig implements WebMvcConfigurer {
 		.addResourceLocations("file:///C:/uploadFiles/test/");
 		// Client가 /myPage/file/**패턴으로 이미지를 요청할 때,
 		// 요청을 연결해서 처리해 줄 서버 폴더 경로로 연결
+		
+		// 프로필 이미지 요청 - 서버 폴더 연결 추가 
+		registry.
+		 addResourceHandler(profileResourceHandler) //  /myPage/profile/**
+		.addResourceLocations(profileResourceLocation); //  file:///C:/uploadFiles/profile/
+		
+		// file:///C: 는 파일 시스템의 루트 디렉토리
+		
+		// file://  은 URL 스킴(scheme), 파일 시스템의 Resource(자원)를 말한다.
+		// /C: 는 Windows 시스템에서 C드라이브를 가리킨다.
+		// file:///C: "C드라이브의 루트 디렉토리"를 의미한다.
 	}
 	
 	
@@ -59,8 +82,9 @@ public class FileConfig implements WebMvcConfigurer {
 		// -> 보통은 서버 경로를 작성함 (ㄹㅇ 서버 컴퓨터의 경로 작성) => 보안상 문제가 있을 수 있기때문에
 		// config.prop에 작성한 내용을 가져와서 쓸꺼다.
 		
-		MultipartConfigFactory factory = new MultipartConfigFactory();
+		MultipartConfigFactory factory = new MultipartConfigFactory(); // Config를 찍어낼 공장
 		
+		// MultipartConfigFactory가 공장이라면 밑에 애들은 그 공장에 대한 설비
 		factory.setFileSizeThreshold(DataSize.ofBytes(fileSizeThreshold));// long 타입은 못받아줌
 		
 		factory.setMaxFileSize(DataSize.ofBytes(maxFileSize));			  // 그래서(DataSize.ofBytes

@@ -6,9 +6,9 @@
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 		<list key="orderedElements">
+			<item value="org.eclipse.jdt.ui.PackageExplorer"/>
 			<item value="org.eclipse.ui.navigator.ProjectExplorer"/>
 			<item value="org.eclipse.ui.views.ProgressView"/>
-			<item value="org.eclipse.jdt.ui.PackageExplorer"/>
 			<item value="org.eclipse.wst.server.ui.ServersView"/>
 			<item value="org.eclipse.ui.console.ConsoleView"/>
 		</list>
@@ -20,17 +20,17 @@
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textEntries">
-			<item value="1"/>
-			<item value="1"/>
 			<item value="2"/>
+			<item value="1"/>
+			<item value="1"/>
 			<item value="1"/>
 			<item value="1"/>
 		</list>
 		<list key="textArray">
-			<item value="project"/>
-			<item value="prog"/>
 			<item value="package"/>
 			<item value="pa"/>
+			<item value="project"/>
+			<item value="prog"/>
 			<item value="server"/>
 			<item value="console"/>
 		</list>
@@ -74,5 +74,19 @@
 			<item key="DIALOG_HEIGHT" value="550"/>
 			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 		</section>
+	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item key="allPersp" value="false"/>
+		<item key="sort" value="0"/>
+		<list key="bounds">
+			<item value="439"/>
+			<item value="155"/>
+			<item value="798"/>
+			<item value="553"/>
+		</list>
+		<list key="columns">
+			<item value="252"/>
+			<item value="504"/>
+		</list>
 	</section>
 </section>

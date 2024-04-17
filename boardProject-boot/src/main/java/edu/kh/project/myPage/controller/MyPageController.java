@@ -1,5 +1,7 @@
 package edu.kh.project.myPage.controller;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.dto.Member;
+import edu.kh.project.myPage.model.dto.UploadFile;
 import edu.kh.project.myPage.model.service.myPageService;
 import lombok.RequiredArgsConstructor;
 
@@ -262,10 +265,108 @@ public class MyPageController {
 		return "redirect:/myPage/fileTest";
 	}
 	
+	@PostMapping("file/test2")
+	public String fileUpload2(
+					@RequestParam("uploadFile") MultipartFile uploadFile,
+					@SessionAttribute("loginMember") Member loginMember,
+					RedirectAttributes ra) throws IOException {
+		
+		// 로그인한 회원의 번호를 얻어와보자 !! ( 누가 업로드 했는가를 알아야해서이다 )
+		int memberNo = loginMember.getMemberNo();
+		
+		// 업로드된 파일정보를 DB에 INSERT 한 후에, 결과 행의 개수를 반환받을것입니다.
+		// 접근 : memberNO / INSERT : memberNo로 접근하여 넣기
+		int result = service.fileUpload2(uploadFile, memberNo);
+		
+		String message = null;
+		
+		if(result > 0) {
+			message = "파일 업로드 성공";
+			
+		}else {
+			message ="파일 업로드 실패";
+			
+		}
+		
+		ra.addFlashAttribute("message",message);
+		
+		return "redirect:/myPage/fileTest";
+	}
+	
+	/**업로드 파일 목록 조회
+	 *  @param model
+	 *  @return
+	 */
+	@GetMapping("fileList")
+	public String fileList(Model model) {
+		
+		// 파일 목록 조회 서비스 호출
+		List<UploadFile> list = service.fileList();
+		
+		// model list 담아서
+		model.addAttribute("list", list);
+		
+		// myPage/myPage-fileList.html
+		// forward 접두사 접미사 뺴고 ~
+		return "myPage/myPage-fileList";
+		
+	}
+	
+	@PostMapping("file/test3")
+	public String fileUpload3(// name속성값이 같은애들은 List로 받아라
+				@RequestParam("aaa") List<MultipartFile> aaaList,
+				@RequestParam("bbb") List<MultipartFile> bbbList,
+				@SessionAttribute("loginMember") Member loginMember,
+				RedirectAttributes ra
+			)throws Exception {
+		
+		// aaa 파일 미제출 시
+		// -> 0번 , 1번 인덱스 파일이 모두 비어있다
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		// result == 업로드한 파일 갯수가 나오게 할거
+		int result = service.fileUpload3(aaaList, bbbList, memberNo);
+		
+		String message = null;
+		if(result == 0) {
+			message ="업로드된 파일이 없습니다";
+			
+		}else {
+			message = result + "개의 파일이 업로드 되었습니다";
+		}
+		
+		ra.addFlashAttribute("message",message);
+		return "redirect:/myPage/fileTest";
+	}
 	
 	
-	
-	
+	/** 프로필 이미지 변경하는 컨트롤러
+	 * @param profileImg
+	 * @param loginMember
+	 * @param ra
+	 * @return 
+	 */
+	@PostMapping("profile")
+	public String profile(
+			@RequestParam("profileImg") MultipartFile profileImg,
+			@SessionAttribute("loginMember") Member loginMember,
+			RedirectAttributes ra
+			) throws IOException {
+		
+		// 서비스 호출하면 됨ㅎ
+		// myPage/profile/변경된 파일명.확장자 형태의 문자열을
+		// 현재 로그인한 회원의 PROFILE_IMG 값으로 수정할것(UPDATE)
+		int result = service.profile(profileImg,loginMember);
+		
+		String message = null;
+		
+		if(result > 0) message = "변경 성공 ! !";
+		else		   message = "변경 실패 ㅠ ";
+		
+		ra.addFlashAttribute("message", message);
+		return "redirect:profile"; // 리다이렉트 할건데, /myPage/profile
+	}
 	
 	
 	
