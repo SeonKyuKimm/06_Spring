@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping("email")
-@RequiredArgsConstructor /*/ final이 붙은 필드 혹은 NOT NULL 필드에 자동으로
+@RequiredArgsConstructor /* final이 붙은 필드 혹은 NOT NULL 필드에 자동으로
 						    의존성을 주입해줌
 						    자동완성으로 @Autowired 생성자 방식 코드 자동완성함(내부적) */
 public class EmailController {
