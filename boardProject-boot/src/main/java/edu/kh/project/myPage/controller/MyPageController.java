@@ -178,20 +178,22 @@ public class MyPageController {
 	}
 
 	/**
-	 * 회원 탈퇴
+	 *  회원 탈퇴
 	 * 
 	 * @param memberPw    : 입력 받은 비밀번호
 	 * @param loginMember : 현재 로그인한 회원의 정보를 얻어어고있다(세션에 담겨있음)
 	 * @param status      : 세션 완료 용도의 객체
-	 * @SessionAttributes 로 등록된 세션을 완료시킬거임
+	 * 					-> @SessionAttributes 로 등록된 세션을 완료시킬거임
 	 * @param ra
 	 * @return
 	 */
 	@PostMapping("secession")
 	public String secession(@RequestParam("memberPw") String memberPw,
-			@SessionAttribute("loginMember") Member loginMember, 
-			SessionStatus status, 
-			RedirectAttributes ra) {
+							@SessionAttribute("loginMember") Member loginMember, 
+							SessionStatus status, // MemberDelFl 을 Y 로 바꿔줄건데(Y가 탈퇴한사람) 현재 로그인한 사람이 탈퇴 과정을 거치면
+												  // Session을 만료시켜줄건데, SessionStatus 등록된 세션을 관리하는 객체
+							RedirectAttributes ra
+						) {
 
 		// 서비스 호출
 		int memberNo = loginMember.getMemberNo();

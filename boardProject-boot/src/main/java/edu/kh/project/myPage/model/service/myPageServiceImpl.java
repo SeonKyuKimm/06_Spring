@@ -98,18 +98,17 @@ public class myPageServiceImpl implements myPageService {
 	// 회원 탈퇴
 	@Override
 	public int secession(String memberPw, int memberNo) {
-			
+		
+		// 현재 로그인한 회원의 암호화된 비밀번호를 조회
 		String originPw = mapper.selectPw(memberNo);
 		
 		// 다를경우
-		if(!bcrypt.matches(memberPw,originPw)) {
+		if( !bcrypt.matches(memberPw,originPw) ) {
 			
 			return 0;
 		}
 		
-		
-		
-		// 같을 경우 
+		// 같을 경우 (왜? 입력비번이 같으면 디비로 가서 일치하는 memberNo를 가진애의delfl을 Y로 해야징 
 		return mapper.secession(memberNo);
 	}
 

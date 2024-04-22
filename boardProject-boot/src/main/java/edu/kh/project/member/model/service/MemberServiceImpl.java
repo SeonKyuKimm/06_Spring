@@ -37,7 +37,7 @@ public class MemberServiceImpl implements MemberService{
 		/*	memberEmail : user01@kh.or.kr
 		 	memberPw  : pass01!
 		 	암호화를 거치지 않은 '평문' 상태라 #{memberPw}가 가능했었다
-		 	고객정보암호화! 를 안하면 내가 구속된다 ㅠ 
+		 	고객정보암호화! 를 안하면 내가 구속된다 ㅠ
 		 	서비스 단에서 가공할거고, 특정 코드로 암호화 해서 DB에는
 		 	암호화된 정보만 저장됨ㅇㅇ*/
 		// --------------------------------------

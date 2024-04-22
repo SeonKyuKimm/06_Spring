@@ -142,12 +142,12 @@ if(secession != null){
         // - 비밀번호 입력 되었는지 확인해보자!
         if(memberPw.value.trim().length == 0){
             alert("비밀번호를 입력해주세요 !");
-            e.preventDefault();
+            e.preventDefault(); // 제출을 막는 함수
             return;
         }
 
         // 약관 동의 체크 확인
-        // checkbox 또는 radoi type인 경우 checked 속성
+        // checkbox 또는 radoi type인 경우 'checked' 속성
         // - checked -> 체크 했을 시 True, 안됐을 시 False를 반환함
 
         if(!agree.checked){ // 동의란에 체크가 안됐을 때!
@@ -157,12 +157,12 @@ if(secession != null){
         }
 
         // 정말 탈퇴할것인지 물어보기 
+        // confirm 창에서 취소를 눌렀을때에 대한 동작.
         if( !confirm("정말 탈퇴하시겠습니까 ?") ){
             alert("취소되었습니다.");
             e.preventDefault();
             return;
         }
-
 
     });
 }
