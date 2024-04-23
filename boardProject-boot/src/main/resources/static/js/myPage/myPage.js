@@ -85,7 +85,7 @@ const changePw = document.querySelector("#changePw");
 
 if(changePw != null){
     //제출이 이루어졌을 때!
-    changePw.addEventListener("submit", e=>{
+    changePw.addEventListener("submit", e => {
 
         const currentPw = document.querySelector("#currentPw");
         const newPw = document.querySelector("#newPw");
@@ -97,8 +97,8 @@ if(changePw != null){
         else if( newPw.value.trim().length == 0 ) str = "새 비밀번호를 입력해주세요";    
         else if( newPwConfirm.value.trim().length == 0 ) str = "새 비밀번호 확인을 입력해주세요";
 
-        // 저 세가지의 경우에 모두 걸리지 않았다면
-        //str은 여전히 undefined상태일거임
+        // 저 세가지의 경우에 모두 걸리지 않았다면 (값이 무엇에도 걸리지 않았고, 위의 if문중 하나가 실행이 됐다는 말임)
+        // str은 여전히 undefined상태일거임
         if ( str != undefined) { // str에 값이 대입됨 == if 중 하나가 실행됨
             alert(str);
             e.preventDefault();
@@ -114,7 +114,7 @@ if(changePw != null){
             return;
         }
 
-        // 새 비밀번호 == 새 비밀번호 확인
+        // 새 비밀번호 == 새 비밀번호 확인 같은지 따지기
         if(newPw.value != newPwConfirm.value){
             alert("새 비밀번호가 일치하지 않습니다.");
             e.preventDefault();

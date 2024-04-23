@@ -63,8 +63,13 @@
 
 								<td>
 									<!-- 썸네일 추가 예정 -->
-
-									<a th:text="*{boardTitle}">게시글 제목</a>
+									
+										<!-- http://localhost/board/1/1968?cp=2 라는 주소로 동작됨
+											        로컬호스트/보드게시판/1 : 게시판넘버/ 1968번 글? 현재페이지2번
+													상세 조회 주소에 cp가 포함된 이유 ? 상세-> 목록으로 돌아올 때 사용함 
+										-->
+									<a th:href="@{/board/{boardCode}/{boardNo} ( boardCode=${boardCode}, boardNo=*{boardNo}, cp=${pagination.currentPage} )}" 
+									   th:text="*{boardTitle}">게시글 제목</a>
 
 									<th:block th:text="|[*{commentCount}]|">댓글 수</th:block>
 

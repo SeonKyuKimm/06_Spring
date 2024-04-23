@@ -3,6 +3,8 @@ package edu.kh.project.board.model.service;
 import java.util.List;
 import java.util.Map;
 
+import edu.kh.project.board.model.dto.Board;
+
 public interface BoardService {
 
 	/** 게시판 종류 조회하는 메서드다~
@@ -16,5 +18,11 @@ public interface BoardService {
 	 * @return map
 	 */
 	Map<String, Object> selectBoardList(int boardCode, int cp);
+
+	/** 게시글 상세조회
+	 * @param map
+	 * @return Board
+	 */
+	Board selectOne(Map<String, Integer> map);
 
 }

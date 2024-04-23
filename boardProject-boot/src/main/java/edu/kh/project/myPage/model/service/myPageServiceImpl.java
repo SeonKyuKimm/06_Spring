@@ -72,10 +72,10 @@ public class myPageServiceImpl implements myPageService {
 		String originPw = mapper.selectPw(memberNo);
 		
 		// 현재 우리가 입력받은 평문상태의 현재 비밀번호가 paramMap안에 있고,
-		// db에서 암호화된 비밀번호랑 비교할거다.
+		// db에서 암호화된 origin 비밀번호랑 비교할거다.
 		// 입력받은 현재 비밀번호와(평문상태)
 		// DB에서 조회한 비밀번호 비교 (암호화상태)
-		//BCryptPasswordEncoder.matchesa(평문,암호화된 비밀번호)
+		//BCryptPasswordEncoder.matchesa(평문,암호화된 비밀번호) -맞으면 true 아니면 false
 		
 		//다를 경우
 		if( !bcrypt.matches((String)paramMap.get("currentPw"), originPw)) {
@@ -83,14 +83,15 @@ public class myPageServiceImpl implements myPageService {
 			// matches 함수는 true false 로 값을 반환함
 		}
 		
-		//같을 경우
+		//같을 경우,
+		
 		// 새 비밀번호를 암호화 진행
 		String encPw = bcrypt.encode((String)paramMap.get("newPw"));
 		
 		paramMap.put("encPw", encPw);
 		paramMap.put("memberNo", memberNo);
 		
-	
+		
 		
 		return mapper.changePw(paramMap);
 	}
