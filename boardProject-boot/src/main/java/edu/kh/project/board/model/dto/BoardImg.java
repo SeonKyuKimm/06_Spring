@@ -18,7 +18,7 @@ import lombok.ToString;
 public class BoardImg {
 
 	private int imgNo;
-	private String imgPath;
+	private String imgPath;// image/board/
 	private String imgOriginalName;
 	private String imgRename;
 	private int imgOrder;
