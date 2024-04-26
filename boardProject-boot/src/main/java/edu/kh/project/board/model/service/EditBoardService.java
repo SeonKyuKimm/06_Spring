@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.Board;
 
-public interface EditBoardService {
+public interface EditBoardService  {
 
 	/** 게시글 작성
 	 * @param inputBoard
@@ -15,5 +15,7 @@ public interface EditBoardService {
 	 * @return boardNo
 	 */
 	int boardInsert(Board inputBoard, List<MultipartFile> images) throws IllegalStateException, IOException;
+
+	int boardUpdate(Board inputBoard, List<MultipartFile> images, String deleteOrder) throws IllegalStateException, IOException;
 
 }

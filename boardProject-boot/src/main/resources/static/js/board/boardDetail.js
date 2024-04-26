@@ -75,8 +75,22 @@ document.querySelector("#boardLike").addEventListener("click", e => {
 
 
 
+//------------------------------- 게시글 수정 버튼 -------------------------------------
+const updateBtn = document.querySelector("#updateBtn");
+if(updateBtn != null){ // 수정 버튼 존재 시 (로그인한 사용자인 경우)
+	
+	updateBtn.addEventListener('click', () => {
+		
+		// GET 방식 요청 처리
+		// 현재 : /board/1/2001?cp=1
+		// 목표 : /editBoard/1/2001/update?cp=1
+		location.href = location.pathname.replace('board','editBoard') // board 라고 써 있는 부분을 찾아서 editBoard라고 바꿀것이다
+						+ "/update"
+						+ location.search; // 쿼리스트링 시작점을 찾아서 (물음표부터시작해서) 내가 만들고자 하는 경로 뒤에 붙여준다
 
 
+	});
+}
 
 
 
