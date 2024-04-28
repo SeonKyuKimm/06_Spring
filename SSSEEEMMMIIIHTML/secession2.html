@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원탈퇴</title>
+</head>
+
+<style>
+    
+    
+
+    
+
+    .big-container{
+
+        position: relative;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        flex-direction : column;
+        
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .small-container{
+
+        display: flex;
+        display: flex;
+        background-color: #fff;
+        z-index: 1;
+    }
+
+    .bgP{
+        position: absolute;
+        top: calc(50% - 15vh);
+        
+        width: 75vw;
+        height: 30vh;
+        z-index: 0;
+
+        /* 나중에지우셈 */
+        background-color: red;
+
+    }
+
+    .left-container{
+
+        border: 1px solid lightgray;
+
+        display: flex;
+
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 25vw;
+        height: 65vh;
+
+        box-shadow: 0px 3px 3px #9e9e9eb8;
+
+        
+    }
+
+            .sece-info{
+
+                display: flex;
+                flex-direction: column;
+
+                align-items: center;
+
+                margin-top: 5vh;
+                
+            }
+
+            .logo{
+
+
+                margin-top: 3vh;
+                margin-bottom: 2vh;
+            }
+
+            
+
+
+    .right-container{
+
+        border: 1px solid lightgray;
+
+        width: 25vw;
+        height: 65vh;
+
+        display: flex;
+
+        justify-content: flex-start;
+
+        flex-direction: column;
+        align-items: center;
+
+        box-shadow: 3px 3px 3px lightgray;
+    }
+
+            .notice{
+
+
+            border : 1px solid lightgray;
+
+            background-color: #FCEBD2;
+            color : red;
+
+            
+            height: 15vh;
+        }
+
+
+            .sece-info{
+                
+                margin-top: 15vh ;
+            }
+
+
+    .input-container{
+
+        width: 25vw;
+    }
+
+    .info-input{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        height: 15vh;
+        width: 10vw;
+    }
+
+    input{
+        border: none;
+    }
+    
+        
+
+
+    .line {
+        width: 200px;
+        height: 5px; /* 선의 두께 설정 */
+        background: linear-gradient(to right, #6E6EF5, #2F4F4F); /* 그라데이션 색상 및 방향 설정 */
+    }
+
+    .lines{
+        width: 250px;
+        height: 3px; /* 선의 두께 설정 */
+        background: linear-gradient(to right, #6E6EF5, #2F4F4F);
+    }
+
+
+
+    .button-container{
+
+        display: flex;
+
+        margin-top: 3vh;
+        margin-bottom: 2vh;
+        margin-left: 20vh;
+    }
+</style>
+<body>
+    
+    <section class="big-container">
+       
+        <img src="/cap.png" class="bgP"></img>
+
+        <div class="small-container">
+
+            <div class="left-container">
+                
+                <img src="/logo.png" class="logo">chee : mi</img>
+                <br>
+                <div class="word">
+                    <B>
+                         좀 더 남아서돈을 더 써주세요<br>
+                        10500개의 강의가 기다리고 있어요
+                        <br><br>
+                        지식 쑥쑥!<br>
+                        지갑 텅텅!!<br>
+                    </b>
+                </div>
+
+                <div>
+
+                <div class="sece-info">
+                    회원 탈퇴 약관 / 개인 정보 관리 <br>
+                    <br>
+                    <div class="lines"></div>
+                    <br>
+                </div>
+
+                
+                    <div class="sece-info-btn">
+                        <button type="submit"
+                                style="margin-left: 15vw; margin-top: 8vh;">탈퇴 약관</button>
+                    </div>
+                
+            </div>    
+
+            </div>
+
+            <div class="right-container">
+
+                <div style="height: 20vh;"></div>
+                <div class="notice">
+                    <br>
+                    비밀번호를 입력해 주세요.<br>
+
+                    ※ 비밀번호를 입력하시면 회원 탈퇴가 완료됩니다.<br>
+
+                    ※ 원치 않으시는 경우 [메인으로] 버튼을 눌러<br>
+                    홈페이지의 메인으로 돌아시기 바랍니다.<br>
+
+                    ※ 저장된 회원의 정보는 삭제됩니다.<br>
+                </br>
+
+                <div class="input-container">
+                <div class="info-input">
+                    <br>
+                    <input type="password" placeholder="비밀번호"><br>
+                     <br>
+                    <input type="password" placeholder="비밀번호 확인">
+                </div>    
+                </div>
+                <br>
+                <br>
+                
+                <br>
+                <div class="line"></div>
+
+                <div class="button-container">
+
+                    <div class="info-button">
+                        <button type="submit">탈퇴하기</button>
+                        <button type="submit">메인으로</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            
+        </div>
+
+       
+
+    </section>
+
+
+</body>
+</html>

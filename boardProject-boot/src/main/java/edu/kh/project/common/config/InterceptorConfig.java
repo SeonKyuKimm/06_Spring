@@ -34,6 +34,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 							 "/js/**",
 							 "/images/**",
 							 "/favicon.ico/**");
+		
 	}
 	
 	
