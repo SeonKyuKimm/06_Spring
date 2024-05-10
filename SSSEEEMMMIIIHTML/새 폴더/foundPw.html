@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 찾기</title>
+</head>
+
+    <link rel="stylesheet" href="/새 폴더/foundPw.css">
+<body>
+    
+    <form action="/member/foundPw" mothod="POST">
+        <section class="big-container">
+
+            <div class="left-container">
+
+                <pre class="information">
+                    
+                    <b>비밀번호 찾기</b>
+
+                    비밀번호를 잃어버리셨나요 ?
+                    
+                    
+                    가입 당시 사용하신 아이디를 이용하여
+                    비밀번호를 찾을 수 있습니다.
+
+                    
+                    ※ 서비스 이용 시, 불편하신 상황에는 
+                    고객센터로 문의해주세요
+                    
+                    고객센터 : 010 - 6702 - 5246
+                </pre>
+                
+
+                
+            </div>
+
+            <div class="right-container">
+
+                <div class="right-input">
+                    <div>
+                        <input placeholder="성함" class="input1" id="member-name">
+                    </div>
+
+                    <div>
+                        <input placeholder="아이디" class="input2" id="member-id">
+                    </div>
+
+                    <div class = "check">
+                        <input placeholder="010-0000-0000" id="member-tel">
+                        <button id="get-auth-key-Btn">인증번호 받기</button>
+                    </div>
+
+                    <div>
+                        <input placeholder="인증번호 6자리" class="input3" id="get-auth-key">
+                    </div>
+                </div>
+                
+                
+                
+                <div>
+                    <button id="found-pw">비밀번호 찾기</button>
+                </div>
+            </div>
+
+        </section>
+    </form>
+</body>
+</html>

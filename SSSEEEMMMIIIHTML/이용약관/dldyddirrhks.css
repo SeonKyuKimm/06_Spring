@@ -1,0 +1,127 @@
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    font-family: 'Pretendard-Regular';
+}
+
+body {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+}
+
+
+
+.body-div{
+    background-color: #fefefe;
+}
+
+.header-div{
+
+    position: relative;
+
+    display: flex;
+    height: 45px;
+    background-color: #2f4f4f;
+    justify-content: center;
+}
+
+.logoNegative {
+    
+    width: auto;
+    height: 80%;
+
+    margin-top: 0.5vh;
+}
+
+h1 {
+    font-size: 1em;
+    
+    color: #ffffff;
+}
+
+.content-area{
+    max-width: 460px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 28px 10px 0;
+}
+
+.tab_menu {
+    overflow: hidden;
+}
+
+.tab_menu ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.tab_menu li {
+    
+    
+    
+
+    flex: 1;
+    
+    text-align: center;
+    list-style-type: none; 
+}
+
+.tab_menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: darkslategray;
+
+    border: 0.5px solid darkslategray;
+    
+}
+
+.tab_menu li a:hover{
+    background-color: darkslategray;
+    color : #ffffff;
+
+
+}
+
+.tab_menu li a:active{
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    color: darkslategray;
+}
+
+.agree_content {
+    padding: 38px 0 21px 14px;
+    text-align: center; /* 가운데 정렬 추가 */
+}
+
+
+
+.agree_text {
+
+    
+    padding: 0 14px 5px 0;
+    line-height: 22px;
+    -webkit-overflow-scrolling: touch;
+    color: #666;
+    display: inline-block; /* 가운데 정렬을 위해 inline-block으로 변경 */
+    text-align: left; /* 가운데 정렬 후에 내용을 다시 왼쪽 정렬로 변경 */
+    max-width: 100%; /* 내용의 최대 너비를 설정하여 가운데 정렬을 적용 */
+    margin: 0 auto; /* 가운데 정렬을 위해 좌우 여백을 자동으로 설정 */
+}
+
+pre {
+    white-space: pre-wrap;
+    display: block;
+ 
+    margin: 1em 0px;
+}
