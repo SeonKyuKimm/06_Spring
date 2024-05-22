@@ -28,7 +28,7 @@ public class FilterConfig {
 		
 		// 필터링 할 url 만들어주자 
 		//  /myPage/* : myPage로 시작하는 모든 요청에 대한 필터를 만들어보자
-		String[] filteringURL = {"/myPage/*", "/editBoard/*"}; // myPage로 시작하는 모든 요청이 배열 형태로 들어오게 됨
+		String[] filteringURL = {"/myPage/*", "/editBoard/*", "/chatting/*"}; // myPage로 시작하는 모든 요청이 배열 형태로 들어오게 됨
 		
 		// 필터가 동작할 URL을 세팅
 		// Arrays.asList 사용해서 List 컬렉션 패턴으로

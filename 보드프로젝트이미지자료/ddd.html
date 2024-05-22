@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+       
+
+        .big-container{
+
+            display: flex;
+            
+            
+            flex-direction: column;
+            flex-basis: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .cont{
+
+            border: 1px solid black;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-around;
+            align-items: center;
+
+            width: 30vw;
+            height: 50vh;
+
+            border-radius: 0 0 5px 5px;
+        }
+
+
+        .hr{
+
+            width: 300px;
+            height: 3px;
+            background-color: #ff5e57;
+
+        }
+
+        .word{
+
+            
+        }
+
+        .inputPw{
+
+            width: 250px;
+            height: 50px;
+
+            font-size: 18px;
+
+            border: 2px solid transparent;
+        }
+                
+        .inputPw:focus {
+            border-color: #cf2319;
+            outline: none;
+        }
+
+        .confirm{
+            width: 75px;
+            height: 30px;
+
+            background-color: #ff5e57;
+
+            border: none;
+            border-radius: 3px;
+
+            color: #ffffff;
+        }
+
+        .confirm:hover{
+
+            background-color: #ffffff;
+
+            border : 1px solid #e2382f;
+            color : #e2382f;
+
+        }
+
+        .confirm:active{
+
+            color :#ffffff;
+            background-color: #ff5e57;
+        }
+
+        .cancel{
+
+            width: 75px;
+            height: 30px;
+
+            background-color: #ff5e57;
+
+            border: none;
+            border-radius: 3px;
+
+            color : #ffffff;
+        }
+
+        .cancel:hover{
+
+            background-color: #ffffff;
+
+            border : 1px solid #ff5e57;
+            color : #ff5e57;
+
+        }
+
+        .cancel:active{
+            color :#ffffff;
+            background-color: #ff5e57;
+
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="big-container">
+        <section class="cont">
+            
+            <div class="lock">
+                <div class="hr"></div>
+               
+            </div>
+            l.o.c.k
+
+            <div class="word">
+                고객님의 정보 보호를 위해<br><br>
+                비밀번호를 다시 입력바랍니다
+            </div>
+
+            <input type="password" placeholder="비밀번호 입력" class="inputPw">
+
+            <div class="buttonDiv">
+                <button class="confirm">확인</button>
+                <button class="cancel">취소</button>
+            </div>    
+
+        </section>
+    </div>
+</body>
+</html>
